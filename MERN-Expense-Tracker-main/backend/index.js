@@ -21,7 +21,7 @@ app.get('/ping', (req, res) => {
 app.use(bodyParser.json());
 app.use(cors(
     {
-    origin: ["https://bugdet-bee-frontend.vercel.app/login"],  // Allowed origin
+    origin: ["https://bugdet-bee-frontend.vercel.app"],  // Allowed origin
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
     credentials: true // Allow cookies to be sent with requests
 }
