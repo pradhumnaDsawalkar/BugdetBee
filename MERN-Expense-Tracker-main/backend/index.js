@@ -19,16 +19,13 @@ app.get('/', (req, res) => {
 });
 
 app.use(bodyParser.json());
-app.options('*', cors({
-    origin: ["https://bugdet-bee-fro.vercel.app"],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    credentials: true
-}));
-
-app.use((req, res, next) => {
-    console.log(`Request URL: ${req.url}, Method: ${req.method}`);
-    next();
-});
+app.use(cors(
+    {
+    origin: ["http://localhost:3000"],  // Allowed origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+    credentials: true // Allow cookies to be sent with requests
+}
+));
 
 
 app.use('/auth', AuthRouter);
