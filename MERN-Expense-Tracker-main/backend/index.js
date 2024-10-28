@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 app.use(bodyParser.json());
 app.use(cors(
     {
-    origin: ["http://localhost:3000"],  // Allowed origin
+    origin: ["https://bugdet-bee-fro.vercel.app/login"],  // Allowed origin
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
     credentials: true // Allow cookies to be sent with requests
 }
