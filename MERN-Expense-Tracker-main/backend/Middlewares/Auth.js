@@ -2,6 +2,11 @@
 const jwt = require('jsonwebtoken');
 const ensureAuthenticated = (req, res, next) => {
     const auth = req.headers['authorization'];
+
+      if (req.method === 'OPTIONS') {
+        return next();  // Bypass authentication on preflight requests
+    }
+    
     if (!auth) {
         return res.status(403)
             .json({ message: 'Unauthorized, JWT token is require' });
