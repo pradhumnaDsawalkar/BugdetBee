@@ -19,13 +19,12 @@ app.get('/', (req, res) => {
 });
 
 app.use(bodyParser.json());
-app.use(cors(
-    {
-    origin: ["https://bugdet-bee-fro.vercel.app"],  // Allowed origin
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-    credentials: true // Allow cookies to be sent with requests
-}
-));
+app.options('*', cors({
+    origin: ["https://bugdet-bee-fro.vercel.app"],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true
+}));
+
 
 app.use('/auth', AuthRouter);
 app.use('/products', ProductRouter);
