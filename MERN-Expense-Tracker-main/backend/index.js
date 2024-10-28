@@ -25,6 +25,11 @@ app.options('*', cors({
     credentials: true
 }));
 
+app.use((req, res, next) => {
+    console.log(`Request URL: ${req.url}, Method: ${req.method}`);
+    next();
+});
+
 
 app.use('/auth', AuthRouter);
 app.use('/products', ProductRouter);
